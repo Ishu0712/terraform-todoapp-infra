@@ -21,9 +21,10 @@ jobs:
       uses: actions/checkout@v5.0.0
     # 🔧 Set execution policy non-interactively for this process
     - name: Set PowerShell Execution Policy
-      shell: pwsh
+      shell: powershell
       run: |
-          Set-ExecutionPolicy Bypass -Scope Process -Force
+       Set-ExecutionPolicy Bypass -Scope Process -Force
+
     - name: Setup Terraform 
       uses: hashicorp/setup-terraform@v3
         
