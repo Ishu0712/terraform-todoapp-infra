@@ -9,18 +9,45 @@ on:
       - 'releases/**'
       - 'feature/**'
 jobs:
-  my_first_job:
-    name: My first job
+  terraform:
+    name: Terraform Job
     runs-on: kaluwa-runner
     steps:
-    - name: kaluwa maharaj
-      run: echo kaluwa maharaj rocks !
+    - name: Checkout Repository
+      uses: actions/checkout@v5.0.0
       
-    - name: billo rani
-      run: echo billo rani rocks !
+    - name: Setup Terraform 
+      uses: hashicorp/setup-terraform@v3
+        
+    - name: Azure Login
+      uses: Azure/login@v2.3.0
+      with:
+        tenant-id: "e7bcfba0-e88d-4265-b3b5-f112aa9b2518"
       
-    - name: Tondu maharaj
-      run: echo tondu maharaj rocks !
+    - name: Terraform fmt
+      id: fmt
+      run: terraform fmt -check
+      continue-on-error: true
+
+    - name: Terraform Init
+      id: init
+      run: terraform init -input=false
+      working-directory: environments/dev
+
+    - name: Terraform Validate
+      id: validate
+      run: terraform validate -no-color
+      working-directory: environments/dev
+
+    - name: Terraform Plan
+      id: plan
+      run: terraform plan -no-color -input=false
+      continue-on-error: true
+      working-directory: environments/dev
+
+      
+      
+      
 
       
  
