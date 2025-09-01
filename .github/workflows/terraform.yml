@@ -19,6 +19,7 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v5.0.0
+      
     # 🔧 Set execution policy non-interactively for this process
     - name: Set PowerShell Execution Policy
       shell: powershell
@@ -56,6 +57,12 @@ jobs:
       run: terraform plan -no-color -input=false
       continue-on-error: true
       working-directory: environments/dev
+
+    - name: Terraform Apply
+      id: apply
+      run: terraform apply --auto-approve
+      continue-on-error: true
+      working-directory: environments/dev       
 
       
       
