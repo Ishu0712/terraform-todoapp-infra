@@ -11,7 +11,7 @@ on:
 jobs:
   my_first_job:
     name: My first job
-    runs-on: kaluwa
+    runs-on: kaluwa-runner
     steps:
     - name: kaluwa maharaj
       run: echo kaluwa maharaj rocks !
