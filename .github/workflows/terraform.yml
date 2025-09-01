@@ -8,6 +8,10 @@ on:
       - main
       - 'releases/**'
       - 'feature/**'
+permissions:
+  id-token: write     # 🔐 REQUIRED for OIDC-based Azure login
+  contents: read      # 📖 Required for repo access by most actions
+  
 jobs:
   terraform:
     name: Terraform Job
@@ -15,7 +19,11 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v5.0.0
-      
+    # 🔧 Set execution policy non-interactively for this process
+    - name: Set PowerShell Execution Policy
+      shell: pwsh
+      run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
     - name: Setup Terraform 
       uses: hashicorp/setup-terraform@v3
         
