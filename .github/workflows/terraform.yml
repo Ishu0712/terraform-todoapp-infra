@@ -14,9 +14,7 @@ jobs:
     runs-on: kaluwa-runner
     steps:
     - name: kaluwa maharaj
-      run: |
-          Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-          echo "kaluwa maharaj rocks
+      run: echo kaluwa maharaj rocks !
       
     - name: billo rani
       run: echo billo rani rocks !
