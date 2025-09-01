@@ -1,5 +1,5 @@
   module "mera_RG"{
-    source= "../child"
+    source= "../azurerm_resource_group"
     }
 
 
