@@ -1,0 +1,28 @@
+# This is a basic workflow to help you get started with Actions
+
+name: "learngihubactions"
+
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+      - 'feature/**'
+jobs:
+  my_first_job:
+    name: My first job
+    runs-on: kaluwa
+    steps:
+    - name: kaluwa maharaj
+      run: echo kaluwa maharaj rocks !
+      
+    - name: billo rani
+      run: echo billo rani rocks !
+      
+    - name: Tondu maharaj
+      run: echo tondu maharaj rocks !
+
+      
+ 
+
+
