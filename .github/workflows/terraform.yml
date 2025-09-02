@@ -54,11 +54,12 @@ jobs:
 
     - name: Terraform Plan
       id: plan
-      shell: bash
+      shell: powershell
       run: |
-         terraform plan -no-color -input=false -out=tfplan
-         terraform show -no-color tfplan
+       terraform plan -no-color -input=false -out=tfplan
+       terraform show -no-color tfplan
       working-directory: ./environments/dev
+
 
 
     - name: Terraform Apply
