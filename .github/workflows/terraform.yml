@@ -54,9 +54,12 @@ jobs:
 
     - name: Terraform Plan
       id: plan
-      shell: pwsh
-      run: terraform plan -no-color -input=false -out=tfplan ; terraform show -no-color tfplan
+      shell: bash
+      run: |
+         terraform plan -no-color -input=false -out=tfplan
+         terraform show -no-color tfplan
       working-directory: ./environments/dev
+
 
     - name: Terraform Apply
       id: apply
