@@ -58,10 +58,6 @@ jobs:
        terraform plan -no-color -input=false -out=tfplan
        terraform show -no-color tfplan
       working-directory: ./environments/dev
-e
-      working-directory: ./environments/dev
-
-
 
     - name: Terraform Apply
       id: apply
