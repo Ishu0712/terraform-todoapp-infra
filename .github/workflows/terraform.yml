@@ -56,10 +56,10 @@ jobs:
       id: plan
       shell: powershell
       run: |
-          terraform plan -no-color -input=false -out=tfplan
-          terraform show -no-color tfplan
-          # Print the plan summary as text
-          terraform plan -no-color -input=false
+       terraform plan -no-color -input=false -out=tfplan
+       terraform show -no-color tfplan
+      working-directory: ./environments/dev
+e
       working-directory: ./environments/dev
 
 
