@@ -14,7 +14,7 @@ permissions:
 jobs:
   terraform:
     name: Terraform Job
-    runs-on: kaluwa-runner
+    runs-on: ubuntu-latest
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v5.0.0
